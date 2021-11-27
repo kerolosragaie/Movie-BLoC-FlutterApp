@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 
-class Charcthers {
+class CharcthersModel {
   int? charId;
   String? name;
   String? birthday;
@@ -15,7 +14,7 @@ class Charcthers {
   String? category;
   List<dynamic>? betterCallSaulAppearance;
 
-  Charcthers({
+  CharcthersModel({
     this.charId,
     this.name,
     this.birthday,
@@ -29,7 +28,7 @@ class Charcthers {
     this.betterCallSaulAppearance,
   });
 
-  factory Charcthers.fromMap(Map<String, dynamic> data) => Charcthers(
+  factory CharcthersModel.fromMap(Map<String, dynamic> data) => CharcthersModel(
         charId: data['char_id'] as int?,
         name: data['name'] as String?,
         birthday: data['birthday'] as String?,
@@ -60,20 +59,20 @@ class Charcthers {
 
   /// `dart:convert`
   ///
-  /// Parses the string and returns the resulting Json object as [Charcthers].
-  factory Charcthers.fromJson(String data) {
-    return Charcthers.fromMap(json.decode(data) as Map<String, dynamic>);
+  /// Parses the string and returns the resulting Json object as [CharcthersModel].
+  factory CharcthersModel.fromJson(String data) {
+    return CharcthersModel.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
   /// `dart:convert`
   ///
-  /// Converts [Charcthers] to a JSON string.
+  /// Converts [CharcthersModel] to a JSON string.
   String toJson() => json.encode(toMap());
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    if (other is! Charcthers) return false;
+    if (other is! CharcthersModel) return false;
     return mapEquals(other.toMap(), toMap());
   }
 

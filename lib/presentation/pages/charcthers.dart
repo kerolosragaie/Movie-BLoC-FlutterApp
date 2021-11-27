@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CharctersPage extends StatefulWidget {
+class CharctersPage extends StatelessWidget {
   const CharctersPage({Key? key}) : super(key: key);
 
   @override
-  _CharctersPageState createState() => _CharctersPageState();
-}
-
-class _CharctersPageState extends State<CharctersPage> {
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Container();
   }
 }
