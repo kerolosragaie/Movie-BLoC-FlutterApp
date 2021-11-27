@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:movie_bloc_flutter/data/api/service_manager.dart';
-import 'package:movie_bloc_flutter/data/models/charcthers.dart';
+import 'package:movie_bloc_flutter/data/models/charcthers_model.dart';
 
 class CharcthersServices {
   late ServiceManager serviceManager;

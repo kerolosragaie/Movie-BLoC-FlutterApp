@@ -1,5 +1,5 @@
 import 'package:movie_bloc_flutter/data/api/charcthers_services.dart';
-import 'package:movie_bloc_flutter/data/models/charcthers.dart';
+import 'package:movie_bloc_flutter/data/models/charcthers_model.dart';
 
 class CharctherRepository {
   final CharcthersServices charcthersServices;
