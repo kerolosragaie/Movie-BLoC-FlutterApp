@@ -1,4 +1,4 @@
-# movie_bloc_flutter
+# Movie BLoC Flutter App
 
 A new Flutter project.
 
