@@ -8,7 +8,7 @@ class CharctherRepository {
   Future<List<CharcthersModel>> getAllCharcthers() async {
     final charcthersList = await charcthersServices.getAllCharcthers();
     return charcthersList
-        .map((e) => CharcthersModel.fromJson(e.toJson()))
+        .map((character) => CharcthersModel.fromJson(character))
         .toList();
   }
 }

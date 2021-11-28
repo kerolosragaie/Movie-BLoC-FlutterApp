@@ -32,6 +32,7 @@ dependencies:
 
 
   #For app UI:
+  flutter_hex_color: ^2.0.0
   cupertino_icons: ^1.0.2
   #UI Animations:
   animated_text_kit: ^4.2.1
