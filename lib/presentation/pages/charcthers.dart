@@ -15,7 +15,7 @@ class CharctersPage extends StatefulWidget {
 
 class _CharctersPageState extends State<CharctersPage> {
   late List<CharcthersModel> allCharcthers;
-  late List<CharcthersModel> searchedCharcthers;
+  List<CharcthersModel> searchedCharcthers = [];
   bool _isSearching = false;
   final TextEditingController _searchTextController = TextEditingController();
 
@@ -106,25 +106,33 @@ class _CharctersPageState extends State<CharctersPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 2 / 3,
-                  crossAxisSpacing: 1,
-                  mainAxisSpacing: 1),
-              shrinkWrap: true,
-              physics: const ClampingScrollPhysics(),
-              padding: EdgeInsets.zero,
-              itemCount: _searchTextController.text.isEmpty
-                  ? allCharcthers.length
-                  : searchedCharcthers.length,
-              itemBuilder: (ctx, index) {
-                return CharctherItem(
-                  currentCharModel: _searchTextController.text.isEmpty
-                      ? allCharcthers[index]
-                      : searchedCharcthers[index],
-                );
-              }),
+          _isSearching &&
+                  searchedCharcthers.length <= 0 &&
+                  _searchTextController.text.isNotEmpty
+              ? Center(
+                  child: Image(
+                    image: AssetImage("assets/not_found.gif"),
+                  ),
+                )
+              : GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 2 / 3,
+                      crossAxisSpacing: 1,
+                      mainAxisSpacing: 1),
+                  shrinkWrap: true,
+                  physics: const ClampingScrollPhysics(),
+                  padding: EdgeInsets.zero,
+                  itemCount: _searchTextController.text.isEmpty
+                      ? allCharcthers.length
+                      : searchedCharcthers.length,
+                  itemBuilder: (ctx, index) {
+                    return CharctherItem(
+                      currentCharModel: _searchTextController.text.isEmpty
+                          ? allCharcthers[index]
+                          : searchedCharcthers[index],
+                    );
+                  }),
         ],
       ),
     );
