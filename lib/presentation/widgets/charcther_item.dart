@@ -17,7 +17,7 @@ class CharctherItem extends StatelessWidget {
           color: AppColors.main, borderRadius: BorderRadius.circular(8)),
       child: GridTile(
         child: Container(
-            color: AppColors.secondary,
+            color: Colors.white,
             child: currentCharModel.image.isNotEmpty
                 ? FadeInImage.assetNetwork(
                     width: double.infinity,

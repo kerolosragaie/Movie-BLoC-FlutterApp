@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_bloc_flutter/business_logic/cubit/charcthers_cubit_cubit.dart';
+import 'package:movie_bloc_flutter/business_logic/cubit/charcthers_cubit.dart';
 import 'package:movie_bloc_flutter/constants/pages.dart';
 import 'package:movie_bloc_flutter/data/api/charcthers_services.dart';
 import 'package:movie_bloc_flutter/data/repositories/charcthers_repository.dart';
