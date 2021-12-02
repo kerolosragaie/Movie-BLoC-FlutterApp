@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_bloc_flutter/constants/colors.dart';
+import 'package:movie_bloc_flutter/constants/pages.dart';
 import 'package:movie_bloc_flutter/data/models/charcthers_model.dart';
 
 class CharctherItem extends StatelessWidget {
@@ -15,37 +16,46 @@ class CharctherItem extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
           color: AppColors.main, borderRadius: BorderRadius.circular(8)),
-      child: GridTile(
-        child: Container(
-            color: Colors.white,
-            child: currentCharModel.image.isNotEmpty
-                ? FadeInImage.assetNetwork(
-                    width: double.infinity,
-                    height: double.infinity,
-                    placeholder: "assets/loading.gif",
-                    fit: BoxFit.fill,
-                    image: currentCharModel.image)
-                : Image.asset(
-                    "assets/error.gif",
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.fill,
-                  )),
-        footer: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          color: Colors.black45,
-          alignment: Alignment.bottomCenter,
-          child: Text(
-            currentCharModel.name,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-                fontSize: 20,
-                height: 1.3,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context)
+              .pushNamed(charcthersDetailsPage, arguments: currentCharModel);
+        },
+        child: GridTile(
+          child: Hero(
+            tag: currentCharModel.charId,
+            child: Container(
                 color: Colors.white,
-                fontWeight: FontWeight.bold),
+                child: currentCharModel.image.isNotEmpty
+                    ? FadeInImage.assetNetwork(
+                        width: double.infinity,
+                        height: double.infinity,
+                        placeholder: "assets/loading.gif",
+                        fit: BoxFit.fill,
+                        image: currentCharModel.image)
+                    : Image.asset(
+                        "assets/error.gif",
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.fill,
+                      )),
+          ),
+          footer: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            color: Colors.black45,
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              currentCharModel.name,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 20,
+                  height: 1.3,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),

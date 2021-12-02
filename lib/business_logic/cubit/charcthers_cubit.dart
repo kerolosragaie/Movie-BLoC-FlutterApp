@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:movie_bloc_flutter/data/models/charcthers_model.dart';
 import 'package:movie_bloc_flutter/data/repositories/charcthers_repository.dart';
-part 'charcthers_cubit_state.dart';
+part 'charcthers_state.dart';
 
 class CharcthersCubit extends Cubit<CharcthersCubitState> {
   final CharctherRepository charctherRepository;
