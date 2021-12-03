@@ -18,4 +18,15 @@ Movie BLoC Flutter App
 - Free API : https://breakingbadapi.com/documentation
 
 # :iphone: Screens
+1-Overview:
+
+<img src="assets/gifs/1-starting_app.gif" width="360" height="560"/>
+
+2- Search functionality:
+
+<img src="assets/gifs/2-search_function.gif" width="360" height="560"/>
+
+3- The app can handle internet connection errors:
+
+<img src="assets/gifs/3-handle_internet_connection.gif" width="360" height="560"/>
 
