@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +6,7 @@ import 'package:movie_bloc_flutter/business_logic/cubit/quotes_cubit.dart';
 import 'package:movie_bloc_flutter/constants/colors.dart';
 import 'package:movie_bloc_flutter/data/models/charcthers_model.dart';
 import 'package:movie_bloc_flutter/presentation/widgets/widgets.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
 class CharcthersDetailsPage extends StatelessWidget {
   final CharcthersModel currentCharcther;
@@ -15,7 +15,7 @@ class CharcthersDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<QuotesCubit>(context).getAllQuotes("Jesse Pinkman");
+    BlocProvider.of<QuotesCubit>(context).getAllQuotes(currentCharcther.name);
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(0.6),
       body: CustomScrollView(
@@ -118,11 +118,12 @@ class CharcthersDetailsPage extends StatelessWidget {
                             }
                           } else {
                             return Center(
-                              child: Image(
-                                height: 140,
-                                width: 180,
-                                fit: BoxFit.fill,
-                                image: AssetImage("assets/loading3.gif"),
+                              child: JumpingText(
+                                '...',
+                                style: TextStyle(
+                                  fontSize: 36,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             );
                           }
@@ -155,7 +156,7 @@ class _SliverAppBar extends StatelessWidget {
       expandedHeight: 400,
       pinned: true,
       stretch: true,
-      backgroundColor: AppColors.secondary,
+      backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         title: Text(
@@ -166,12 +167,13 @@ class _SliverAppBar extends StatelessWidget {
           ),
         ),
         background: Hero(
-          tag: currentCharcther.charId,
-          child: Image(
-            fit: BoxFit.fill,
-            image: NetworkImage(currentCharcther.image),
-          ),
-        ),
+            tag: currentCharcther.charId,
+            child: FadeInImage.assetNetwork(
+                width: double.infinity,
+                height: double.infinity,
+                placeholder: "assets/loading.gif",
+                fit: BoxFit.fill,
+                image: currentCharcther.image)),
       ),
     );
   }

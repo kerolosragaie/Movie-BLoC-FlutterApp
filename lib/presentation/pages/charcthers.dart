@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_offline/flutter_offline.dart';
 import 'package:movie_bloc_flutter/business_logic/cubit/charcthers_cubit.dart';
 import 'package:movie_bloc_flutter/constants/colors.dart';
 import 'package:movie_bloc_flutter/data/models/charcthers_model.dart';
@@ -83,11 +84,87 @@ class _CharctersPageState extends State<CharctersPage> {
               ),
         actions: _searchAppBarActions(),
       ),
-      body: BlocBuilder<CharcthersCubit, CharcthersCubitState>(
+      body: OfflineBuilder(
+        child: Text("Loading..."),
+        connectivityBuilder: (cntxt, connectivity, child) {
+          final bool isConnected = connectivity != ConnectivityResult.none;
+          if (isConnected) {
+            return BlocBuilder<CharcthersCubit, CharcthersCubitState>(
+              builder: (context, state) {
+                if (state is CharcthersLoaded) {
+                  allCharcthers = (state).charcthers;
+                  return charcthersListWidget();
+                } else {
+                  return const Center(
+                    child: Image(
+                      fit: BoxFit.fill,
+                      image: AssetImage("assets/loading2.gif"),
+                    ),
+                  );
+                }
+              },
+            );
+          } else {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image(
+                    fit: BoxFit.fill,
+                    image: AssetImage("assets/error.gif"),
+                  ),
+                  Text(
+                    "Check your connection and try again.",
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: TextStyle(
+                      fontSize: 30,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
+        },
+      ),
+      /* body: BlocBuilder<CharcthersCubit, CharcthersCubitState>(
         builder: (context, state) {
           if (state is CharcthersLoaded) {
             allCharcthers = (state).charcthers;
-            return charcthersListWidget();
+            //return charcthersListWidget();
+            return OfflineBuilder(
+              child: Text("Loading..."),
+              connectivityBuilder: (BuildContext cntxt,
+                  ConnectivityResult connectivity, Widget child) {
+                final bool isConnected =
+                    connectivity != ConnectivityResult.none;
+                if (isConnected) {
+                  return charcthersListWidget();
+                } else {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image(
+                          fit: BoxFit.fill,
+                          image: AssetImage("assets/error.gif"),
+                        ),
+                        Text(
+                          "Check your connection and try again.",
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          style: TextStyle(
+                            fontSize: 30,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              },
+            );
           } else {
             return const Center(
               child: Image(
@@ -97,7 +174,7 @@ class _CharctersPageState extends State<CharctersPage> {
             );
           }
         },
-      ),
+      ), */
     );
   }
 

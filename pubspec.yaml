@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   #UI Animations:
   animated_text_kit: ^4.2.1
+  progress_indicators: ^1.0.0
   #Design pattern:
   flutter_bloc: ^8.0.0
   #Calling APIs:

@@ -15,7 +15,7 @@ class CharctherItem extends StatelessWidget {
       margin: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-          color: AppColors.main, borderRadius: BorderRadius.circular(8)),
+          color: AppColors.secondary, borderRadius: BorderRadius.circular(8)),
       child: GestureDetector(
         onTap: () {
           Navigator.of(context)
@@ -25,20 +25,21 @@ class CharctherItem extends StatelessWidget {
           child: Hero(
             tag: currentCharModel.charId,
             child: Container(
-                color: Colors.white,
-                child: currentCharModel.image.isNotEmpty
-                    ? FadeInImage.assetNetwork(
-                        width: double.infinity,
-                        height: double.infinity,
-                        placeholder: "assets/loading.gif",
-                        fit: BoxFit.fill,
-                        image: currentCharModel.image)
-                    : Image.asset(
-                        "assets/error.gif",
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.fill,
-                      )),
+              color: Colors.white,
+              child: currentCharModel.image.isNotEmpty
+                  ? FadeInImage.assetNetwork(
+                      width: double.infinity,
+                      height: double.infinity,
+                      placeholder: "assets/loading.gif",
+                      fit: BoxFit.fill,
+                      image: currentCharModel.image)
+                  : Image.asset(
+                      "assets/error.gif",
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.fill,
+                    ),
+            ),
           ),
           footer: Container(
             width: double.infinity,
