@@ -156,7 +156,7 @@ class _SliverAppBar extends StatelessWidget {
       expandedHeight: 400,
       pinned: true,
       stretch: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         title: Text(
