@@ -105,10 +105,9 @@ class _CharctersPageState extends State<CharctersPage> {
               },
             );
           } else {
-            return Center(
+            return Container(
+              margin: const EdgeInsets.all(10),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image(
                     fit: BoxFit.fill,
@@ -119,7 +118,7 @@ class _CharctersPageState extends State<CharctersPage> {
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 24,
                     ),
                   ),
                 ],
