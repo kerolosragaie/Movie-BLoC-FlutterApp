@@ -3,7 +3,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_bloc_flutter/business_logic/cubit/quotes_cubit.dart';
-import 'package:movie_bloc_flutter/constants/colors.dart';
 import 'package:movie_bloc_flutter/data/models/charcthers_model.dart';
 import 'package:movie_bloc_flutter/presentation/widgets/widgets.dart';
 import 'package:progress_indicators/progress_indicators.dart';

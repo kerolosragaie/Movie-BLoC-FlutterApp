@@ -127,53 +127,6 @@ class _CharctersPageState extends State<CharctersPage> {
           }
         },
       ),
-      /* body: BlocBuilder<CharcthersCubit, CharcthersCubitState>(
-        builder: (context, state) {
-          if (state is CharcthersLoaded) {
-            allCharcthers = (state).charcthers;
-            //return charcthersListWidget();
-            return OfflineBuilder(
-              child: Text("Loading..."),
-              connectivityBuilder: (BuildContext cntxt,
-                  ConnectivityResult connectivity, Widget child) {
-                final bool isConnected =
-                    connectivity != ConnectivityResult.none;
-                if (isConnected) {
-                  return charcthersListWidget();
-                } else {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image(
-                          fit: BoxFit.fill,
-                          image: AssetImage("assets/error.gif"),
-                        ),
-                        Text(
-                          "Check your connection and try again.",
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          style: TextStyle(
-                            fontSize: 30,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-              },
-            );
-          } else {
-            return const Center(
-              child: Image(
-                fit: BoxFit.fill,
-                image: AssetImage("assets/loading2.gif"),
-              ),
-            );
-          }
-        },
-      ), */
     );
   }
 
