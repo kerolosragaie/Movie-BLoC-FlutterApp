@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="assets/logo.png" width="140" height="140">
+</p>
 <h1 align="center">
 Movie BLoC Flutter App
 </h1>
@@ -5,14 +8,9 @@ Movie BLoC Flutter App
 [![Linkedin: kerollosragaie](https://img.shields.io/badge/-kerollosragaie-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kerollos-ragaie-youssef-b9529aa6/)](https://www.linkedin.com/in/kerollos-ragaie/)
 [![GitHub Kerollos Ragaie](https://img.shields.io/github/followers/kerolosragaie?label=follow&style=social)](https://github.com/kerolosragaie)
 
-<p align="center">
-    <img src="assets/logo.png" width="140" height="140">
-</p>
-
 # ℹ️ Overview
 - Used Flutter with BLoC pattern to make Movie BLoC App to show some information about my favorite series Breaking Bad. 
 - Played with some fancy UI widgets.
-
 
 # 📌 Used API
 
