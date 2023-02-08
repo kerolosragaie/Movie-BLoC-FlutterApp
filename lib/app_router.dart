@@ -28,6 +28,7 @@ class AppRouter {
     quotesCubit = QuotesCubit(quoteRepository);
   }
 
+  // ignore: body_might_complete_normally_nullable
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case charcthersPage:
