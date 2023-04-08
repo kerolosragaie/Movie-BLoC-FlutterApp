@@ -29,3 +29,6 @@ Movie BLoC Flutter App
 
 <img src="assets/gifs/3-handle_internet_connection.gif" width="360" height="560"/>
 
+Breaking bad API is down, here is a new app with working api:
+
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=kerolosragaie&repo=rick_morty_bloc)](https://github.com/kerolosragaie/rick_morty_bloc)
